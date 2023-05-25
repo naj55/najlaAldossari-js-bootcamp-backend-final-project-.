@@ -152,12 +152,16 @@ exports.getDetails = (req, res) => {
 };
 
 exports.getmyCourseList = (req, res) => {
-  Instructor.findById(req.session.userId)
-    .populate("createdcourse")
-    .then((result) => {
-      const course = result.createdcourse;
-      res.render("myCourseList.ejs", { course });
-    });
+  if (req.session.role == "admin") {
+    res.redirect("http://localhost:8000/Principal/AllCourse");
+  } else {
+    Instructor.findById(req.session.userId)
+      .populate("createdcourse")
+      .then((result) => {
+        const course = result.createdcourse;
+        res.render("myCourseList.ejs", { course });
+      });
+  }
 };
 
 exports.getlogout = (req, res) => {
