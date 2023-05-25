@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link href="/dist/output.css" rel="stylesheet" /> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="w-96 ml-60 mt-44">
+      <button
+        class="bg-cyan-950 shadow-lg shadow-cyan-950/50 opacity-80 rounded-lg w-32 h-10"
+      >
+        <a
+          href="/Instructor/logout"
+          class="font-medium p-3 text-red-400 dark:text-orange-600 opacity-90 hover:underline"
+        >
+          logout</a
+        >
+      </button>
+
+      <button
+        class="bg-cyan-950 shadow-lg shadow-cyan-950/50 opacity-80 rounded-lg w-32 h-10 ml-9"
+      >
+        <a
+          href="/Instructor/AddCourse"
+          class="dark:text-gray-400 -mb-12 font-medium p-3 text-red-400 opacity-90 hover:underline"
+          >Add Course</a
+        >
+      </button>
+    </div>
+    <div class="relative overflow-x-auto ml-60 mt-16 sm:rounded w-2/3">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <tr>
+          <thead class="text-xs opacity-80 uppercase bg-cyan-950 text-gray-400">
+            <th scope="col" class="px-6 py-3">course Name</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </thead>
+        </tr>
+        <tbody>
+          <% for( c of course ) { %>
+          <tr class="border-b dark:bg-white-200 opacity-90 bg-white">
+            <th
+              class="px-6 py-4 font-medium text-cyan-950 whitespace-nowrap dark:text-cyan-950 opacity-90"
+            >
+              <%= c.courseName %>
+            </th>
+            <td class="px-6 py-4">
+              <a
+                href="/Instructor/Details/<%=c._id%>"
+                class="font-medium text-cyan-950 dark:text-stone-600 hover:underline"
+                >Show Details</a
+              >
+            </td>
+            <td class="px-6 py-4">
+              <a
+                href="/Instructor/edit/<%=c._id%> "
+                class="font-medium text-cyan-950 dark:text-stone-600 hover:underline"
+                >Edit</a
+              >
+            </td>
+            <td class="px-6 py-4">
+              <a
+                href="/Instructor/Delete/<%=c._id%>"
+                class="font-medium text-red-400 dark:text-orange-600 hover:underline"
+                >Delete</a
+              >
+            </td>
+          </tr>
+        </tbody>
+        <% } %>
+      </table>
+    </div>
+  </body>
+</html>

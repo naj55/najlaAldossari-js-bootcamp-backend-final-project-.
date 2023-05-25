@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link href="/dist/output.css" rel="stylesheet" /> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="relative overflow-x-auto ml-60 mt-60 sm:rounded w-2/3">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-400 opacity-80 uppercase bg-cyan-950">
+          <tr>
+            <th scope="col" class="px-6 py-3">course Name</th>
+
+            <th scope="col" class="px-6 py-3">course Description</th>
+
+            <th scope="col" class="px-6 py-3">start date</th>
+
+            <th scope="col" class="px-6 py-3">end date</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b dark:bg-white-200 opacity-90 bg-white">
+            <td
+              class="px-6 py-4 font-medium text-cyan-950 whitespace-nowrap dark:text-cyan-950 opacity-90"
+            >
+              <%= course.courseName %>
+            </td>
+            <td><%= course.courseDesc %></td>
+            <td><%= course.start %></td>
+            <td><%= course.end %></td>
+            <td>
+              <a
+                href="/Instructor/edit/<%=course._id%>"
+                class="font-medium text-cyan-950 dark:text-stone-600 hover:underline"
+                >Edit</a
+              >
+            </td>
+            <td>
+              <a
+                href="/Instructor/Delete/<%=course._id%>"
+                class="font-medium text-red-400 dark:text-orange-600 hover:underline ml-6 pr-4"
+                >Delete</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- <div id="2" class="flex-1 mt-36">
+      <img
+        src="/public/img/idash.jpg"
+        class="w-1/3 h-96 rounded-3xl bg-cyan-950 shadow-lg shadow-cyan-950/50 opacity-80 ml-10"
+      />
+    </div> -->
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="/dist/output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <td><a href="/Instructor/logout">logout</a></td>
+    <div>
+      <td><a href="/Instructor/AddCourse">Add Course</a></td>
+      <td>
+        <a href="/Principal/AttachedCourse">Attache Course To Instructor</a>
+      </td>
+      <table>
+        <tr>
+          <td>course Name</td>
+          <td>course Description</td>
+          <td>start date</td>
+          <td>end date</td>
+        </tr>
+        <% for( c of course ) { %>
+        <tr>
+          <td><%= c.courseName %></td>
+          <td>
+            <a href="/Instructor/Details/<%=c._id%>">Show Details</a>
+          </td>
+          <td><a href="/Instructor/edit/<%=c._id%>">Edit</a></td>
+          <td><a href="/Instructor/Delete/<%=c._id%>">Delete</a></td>
+        </tr>
+        <% } %>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- <%- //include('./input.css') %> -->
+  </head>
+  <body>
+    <div id="1" class="min-h-screen flex">
+      <div id="2" class="flex-1 mt-36">
+        <img
+          src="/public/img/instLogin.jpg"
+          class="w-11/12 ml-14 rounded-3xl bg-cyan-950 shadow-lg shadow-cyan-950/50 opacity-80"
+        />
+      </div>
+
+      <div class="container w-96 flex-none bg-zinc-50">
+        <div
+          class="flex-auto mt-72 ml-12 w-72 p-3 bg-neutral-400 opacity-75 shadow-lg rounded-3xl"
+        >
+          <h1 class="text-cyan-950 text-opacity-80 text-xl text-center">
+            Instructor Login
+          </h1>
+
+          <div class="ml-12">
+            <form action="/Instructor/login" method="post">
+              <input
+                name="username"
+                placeholder="username"
+                class="form-input w-52 rounded-lg h-8 p-3 m-3 -ml-5 bg-zinc-50"
+              />
+              <br />
+              <input
+                name="password"
+                placeholder="password"
+                type="password"
+                class="form-input w-52 rounded-lg h-8 p-3 m-3 -ml-5 bg-zinc-50"
+              />
+              <br />
+              <input
+                type="submit"
+                value="Login"
+                class="input[type='submit'] w-52 rounded-lg h-8 pb-2 m-3 -ml-5 bg-zinc-200 text-orange-600 hover:bg-zinc-300"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

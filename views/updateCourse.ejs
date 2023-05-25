@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link href="/dist/output.css" rel="stylesheet" /> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div
+      class="relative overflow-x-auto ml-60 mt-60 sm:rounded w-2/3 pb-16 pt-9"
+    >
+      <div
+        class="relative overflow-x-auto -mt-9 sm:rounded w-full bg-cyan-950 opacity-70 h-14"
+      ></div>
+      <h1 class="text-center -mt-10">Update Course</h1>
+      <form
+        action="/Instructor/Edit/<%=course._id%>"
+        method="post"
+        class="text-center mt-10"
+      >
+        <input
+          name="courseName"
+          placeholder="Course Name"
+          value="<%= course.courseName %>"
+          class="form-input w-1/3 rounded-lg h-8 p-3 m-3 -ml-5 bg-zinc-50"
+        />
+        <br />
+        <textarea
+          name="courseDesc"
+          class="form-input w-1/3 rounded-lg h-16 p-3 m-3 -ml-5 bg-zinc-50"
+        >
+<%= course.courseDesc %></textarea
+        >
+
+        <br />
+        <input
+          name="start"
+          placeholder="starting day"
+          type="date"
+          value="<%= course.starting %>"
+          class="form-input w-1/3 rounded-lg h-8 p-3 m-3 -ml-5 bg-zinc-50"
+        />
+        <br />
+        <input
+          name="end"
+          placeholder="dending day"
+          type="date"
+          value="<%= course.end %>"
+          class="form-input w-1/3 rounded-lg h-8 p-3 m-3 -ml-5 bg-zinc-50"
+        />
+        <br />
+        <input
+          type="submit"
+          value="edit"
+          class="input[type='submit'] w-1/3 rounded-lg h-9 pb-2 m-3 -ml-5 bg-zinc-200 text-orange-600 hover:bg-zinc-300"
+        />
+      </form>
+    </div>
+    <!-- <div id="2" class="flex-1 mt-36">
+      <img
+        src="/public/img/edit.jpg"
+        class="w-1/3 mt-2 rounded-3xl bg-cyan-950 shadow-lg shadow-cyan-950/50 opacity-80 ml-9"
+      />
+    </div> -->
+  </body>
+</html>
