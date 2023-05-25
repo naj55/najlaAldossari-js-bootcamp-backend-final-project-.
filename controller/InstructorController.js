@@ -82,12 +82,16 @@ exports.postAddCourse = (req, res) => {
   newCourse
     .save()
     .then((result) => {
-      Instructor.findById(req.session.userId).then((foundedInstructor) => {
-        foundedInstructor.createdcourse.push(result._id);
-        foundedInstructor.save().then(() => {
-          res.redirect("/Instructor/myCourseList");
+      if (req.session.role == "admin") {
+        res.redirect("http://localhost:8000/Principal/coursesList");
+      } else {
+        Instructor.findById(req.session.userId).then((foundedInstructor) => {
+          foundedInstructor.createdcourse.push(result._id);
+          foundedInstructor.save().then(() => {
+            res.redirect("/Instructor/myCourseList");
+          });
         });
-      });
+      }
     })
     .catch((err) => {
       res.send(err);
