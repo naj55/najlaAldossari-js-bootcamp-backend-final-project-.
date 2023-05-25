@@ -11,8 +11,8 @@ const checkAuth = (req, res, next) => {
 
       console.log(instructorIds);
       if (req.session.role == "admin") {
-        return;
         next();
+        return;
       } else {
         for (i of instructorIds) {
           if (i == useridlogedIn) {

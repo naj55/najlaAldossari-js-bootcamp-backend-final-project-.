@@ -61,7 +61,6 @@ router.post(
 router.get(
   "/Details/:id",
   checkloginBySession,
-  checkAuth,
   InstructorController.getDetails
 );
 
