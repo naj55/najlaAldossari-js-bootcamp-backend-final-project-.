@@ -153,7 +153,7 @@ exports.getDetails = (req, res) => {
 
 exports.getmyCourseList = (req, res) => {
   if (req.session.role == "admin") {
-    res.redirect("http://localhost:8000/Principal/AllCourse");
+    res.redirect("http://localhost:8000/Principal/coursesList");
   } else {
     Instructor.findById(req.session.userId)
       .populate("createdcourse")
