@@ -88,37 +88,45 @@ exports.postAttachedCourse = (req, res) => {
   res.redirect("/Principal/AttachedCourse");
 };
 
-exports.getEdit = (req, res) => {
-  const id = req.params.id;
-  Course.findById(id)
-    .then((course) => {
-      res.render("updateCourse.ejs", { course });
+exports.getAddCourse = (req, res) => {
+  res.render("addCourse.ejs");
+};
+
+exports.postAddCourse = (req, res) => {
+  courseName = req.body.courseName;
+  courseDesc = req.body.courseDesc;
+  start = req.body.start;
+  end = req.body.end;
+
+  const newCourse = new Course({
+    courseName: courseName,
+    courseDesc: courseDesc,
+    start: start,
+    end: end,
+    creatorInstructor: req.session.userId,
+  });
+  newCourse
+    .save()
+    .then((result) => {
+      Principal.findById(req.session.userId).then((founded) => {
+        founded.createdcourse.push(result._id);
+        founded.save().then(() => {
+          res.redirect("/Principal/myCourseList");
+        });
+      });
     })
     .catch((err) => {
       res.send(err);
     });
 };
 
-exports.postEdit = (req, res) => {
+exports.getdelete = (req, res) => {
   const id = req.params.id;
-  const courseName1 = req.body.courseName;
-  const courseDesc1 = req.body.courseDesc;
-  const start1 = req.body.start;
-  const end1 = req.body.end;
-
-  Course.findById(id).then((result) => {
-    result.courseName = courseName1;
-    result.courseDesc = courseDesc1;
-    result.start = start1;
-    result.end = end1;
-
-    result
-      .save()
-      .then(() => {
-        res.redirect("/Instructor/myCourseList");
-      })
-      .catch((err) => {
-        res.send(err);
-      });
-  });
+  Course.findByIdAndDelete(id)
+    .then(() => {
+      res.redirect("/Principal/myCourseList");
+    })
+    .catch((err) => {
+      res.send(err);
+    });
 };

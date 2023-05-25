@@ -52,7 +52,6 @@ exports.postlogin = async (req, res) => {
         req.session.userId = result._id;
         req.session.role = "instructor";
         const instructorId = req.session.userId;
-        console.log(instructorId);
         res.redirect("/Instructor/myCourseList");
       } else {
         res.redirect("/Instructor/login");

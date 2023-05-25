@@ -31,7 +31,9 @@ router.get("/coursesList", (req, res) => {
 router.get("/AttachedCourse", PrincipalController.getAttachedCourse);
 router.post("/AttachedCourse", PrincipalController.postAttachedCourse);
 
-router.post("/Edit/:id", PrincipalController.postEdit);
-router.post("/Edit/:id", PrincipalController.getEdit);
+// router.post("/Edit/:id", PrincipalController.postEdit);
+// router.post("/Edit/:id", PrincipalController.getEdit);
+// router.post("/Edit/:id", PrincipalController.postEdit);
+router.get("/AddCourse/:id", PrincipalController.getAddCourse);
 
 module.exports = router;

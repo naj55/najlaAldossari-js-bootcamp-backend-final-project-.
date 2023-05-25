@@ -11,7 +11,7 @@ const Course = require("../models/course");
 const Student = require("../models/student");
 const StudentController = require("../controller/StudentController");
 const checkToken = require("../middleware/checkToken");
-
+const checkAuthrization = require("../middleware/checkAuthrization");
 router.post("/register", StudentController.studentregister);
 router.post("/login", StudentController.studentlogin);
 router.patch(
@@ -29,6 +29,7 @@ router.get(
 router.patch(
   "/RemoveStudentCourse/:Cid",
   checkToken,
+  checkAuthrization,
   StudentController.removeStudentCourse
 );
 module.exports = router;
